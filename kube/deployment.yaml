@@ -1,0 +1,16 @@
+kind: Deployment
+metadata:
+  name: demo
+spec:
+  template:
+    metadata:
+      labels:
+        app: demo
+    spec:
+      containers:
+        - image: gcr.io/demo/todomvc:$CI_COMMIT_SHA
+          name: main
+          ports:
+            - containerPort: 9292
+      imagePullSecrets:
+        - name: gcr-cred
