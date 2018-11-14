@@ -1,35 +1,17 @@
 tasks:
-  build-image:
-    build:
-      image: demo/todomvc
-  unit-test:
-    image: demo/todomvc
+  greet:
+    image: circleci/ruby:2.5
     commands:
+      - bundle config path
+
+  rspec:
+    image: circleci/ruby:2.5
+    commands:
+      - bundle install
       - bundle exec rspec
-  deploy-staging:
-    deploy:
-      cluster: staging-cluster
-      template: kube/deployment.yaml
-  deploy-prod:
-    deploy:
-      cluster: prod-cluster
-      template: kube/deployment.yaml
 
 workflow:
   - name: development
-    tasks: 
-      - build-image
-      - unit-test
-  - name: staging
-    tasks: 
-      - build-image
-      - unit-test
-      - deploy-staging
-    condition: branch = staging
-  - name: production
     tasks:
-      - build-image
-      - unit-test
-      - deploy-prod
-    condition: branch = master
-
+      - greet
+      - rspec
