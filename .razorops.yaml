@@ -1,3 +1,4 @@
+
 tasks:
   build-image:
     steps:
@@ -9,4 +10,5 @@ tasks:
     steps:
     - checkout
     - commands:
-      - bundle check || bundle install
+      - gem install bundler -v 1.16.1
+      - bundle check || bundle install --without test development
