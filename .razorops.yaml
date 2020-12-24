@@ -7,5 +7,6 @@ tasks:
 
   gem-install:
     steps:
+    - checkout
     - commands:
       - bundle check || bundle install
