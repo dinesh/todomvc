@@ -6,6 +6,7 @@ ENV APP /root/app
 ADD Gemfile $APP/
 ADD Gemfile.lock $APP/
 
+RUN gem install bundler -v 1.16.1
 RUN cd $APP && bundle install --without test development
 
 ADD . $APP

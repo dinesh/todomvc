@@ -3,5 +3,5 @@ tasks:
   build-image:
     steps:
     - checkout
-    - commands:
-      - bundle check || bundle install --without test development
+    - docker/build:
+        image: demo/todomvc
