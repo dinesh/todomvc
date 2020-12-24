@@ -4,3 +4,8 @@ tasks:
     - checkout
     - docker/build:
         image: demo/todomvc
+
+  gem-install:
+    steps:
+    - commands:
+      - bundle check || bundle install
