@@ -4,9 +4,3 @@ tasks:
     steps:
     - docker/build:
         image: demo/todomvc
-
-  unit-test:
-    steps:
-    - commands:
-      - bundle check || bundle install
-      - bundle exec rspec
