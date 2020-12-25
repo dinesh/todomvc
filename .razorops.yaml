@@ -1,6 +1,5 @@
 tasks:
   build-image:
-    when: branch == 'master'
     steps:
     - checkout
     - docker/build:
