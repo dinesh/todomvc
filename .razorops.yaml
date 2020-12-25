@@ -1,11 +1,13 @@
 tasks:
   build-image:
+    if: branch == 'master'
     steps:
     - checkout
     - docker/build:
         image: demo/todomvc
 
   gem-install:
+    runner: razorci/ruby
     steps:
     - checkout
     - commands:
