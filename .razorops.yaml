@@ -4,3 +4,11 @@ tasks:
     - checkout
     - docker/build:
         image: demo/todomvc
+
+  gem-install:
+    runner: razorci/ruby
+    steps:
+    - checkout
+    - commands:
+      - gem install bundler -v 1.16.1
+      - bundle check || bundle install --without test development
